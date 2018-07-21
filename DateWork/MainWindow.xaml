@@ -9,7 +9,7 @@
                   Title="DateWork" Width="1200" Height="700" Template="{DynamicResource MainWindowStyle}" HorizontalAlignment="Stretch">
     <Window.Resources>
         <ResourceDictionary>
-            <WindowChrome x:Key="WindowChromeKey">
+            <WindowChrome x:Key="WindowChromeKey"> 
                 <WindowChrome.ResizeBorderThickness>
                     <Thickness>5</Thickness>
                 </WindowChrome.ResizeBorderThickness>
