@@ -1,0 +1,99 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="ContextMenu" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib">
+        <Style.Resources>
+            <ResourceDictionary />
+        </Style.Resources>
+        <Setter Property="TextElement.FontFamily" Value="Microsoft YaHei"/>
+        <Setter Property="TextElement.FontSize" Value="14"/>
+        <Setter Property="TextOptions.TextFormattingMode">
+            <Setter.Value>
+                <x:Static Member="TextFormattingMode.Display" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Panel.Background" Value="White"/>
+        <Setter Property="TextElement.Foreground" Value="Black"/>
+        <Setter Property="Border.BorderBrush" Value="{DynamicResource MyBrush}"/>
+        <Setter Property="Border.BorderThickness" Value="1"/>
+        <Setter Property="Control.VerticalContentAlignment">
+            <Setter.Value>
+                <x:Static Member="VerticalAlignment.Center" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Control.Padding">
+            <Setter.Value>
+                <Thickness>0,0,0,0</Thickness>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FrameworkElement.MinWidth">
+            <Setter.Value>
+                <s:Double>150</s:Double>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Grid.IsSharedSizeScope">
+            <Setter.Value>
+                <s:Boolean>True</s:Boolean>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ScrollViewer.PanningMode">
+            <Setter.Value>
+                <x:Static Member="PanningMode.Both" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Stylus.IsFlicksEnabled">
+            <Setter.Value>
+                <s:Boolean>False</s:Boolean>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContextMenu">
+                    <Grid Name="Shdw" SnapsToDevicePixels="True">
+                        <Border BorderThickness="{TemplateBinding Border.BorderThickness}" BorderBrush="{TemplateBinding Border.BorderBrush}" Background="{TemplateBinding Panel.Background}" Name="ContextMenuBorder">
+                            <ScrollViewer Style="{DynamicResource {ComponentResourceKey TypeInTargetAssembly=FrameworkElement, ResourceId=MenuScrollViewer}}" Name="ContextMenuScrollViewer" Margin="0,0,0,0" Grid.ColumnSpan="2">
+                                <Grid RenderOptions.ClearTypeHint="Enabled">
+                                    <Canvas Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                        <Rectangle Fill="{x:Null}" Name="OpaqueRect" Width="Auto" Height="Auto" />
+                                    </Canvas>
+                                    <Rectangle RadiusX="2" RadiusY="2" Fill="#FFF1F1F1" Width="28" Margin="1,2,1,2" HorizontalAlignment="Left" />
+                                    <Rectangle Fill="#FFE2E3E3" Width="1" Margin="29,2,0,2" HorizontalAlignment="Left" />
+                                    <Rectangle Fill="#FFFFFFFF" Width="1" Margin="30,2,0,2" HorizontalAlignment="Left" />
+                                    <ItemsPresenter Name="ItemsPresenter" Margin="{TemplateBinding Control.Padding}" SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" KeyboardNavigation.DirectionalNavigation="Cycle" />
+                                </Grid>
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ContextMenuService.HasDropShadow">
+                            <Setter Property="FrameworkElement.Margin" TargetName="Shdw">
+                                <Setter.Value>
+                                    <Thickness>0,0,5,5</Thickness>
+                                </Setter.Value>
+                            </Setter>
+                            <Trigger.Value>
+                                <s:Boolean>True</s:Boolean>
+                            </Trigger.Value>
+                        </Trigger>
+                        <Trigger Property="ScrollViewer.CanContentScroll" SourceName="ContextMenuScrollViewer">
+                            <Setter Property="Canvas.Top" TargetName="OpaqueRect">
+                                <Setter.Value>
+                                    <Binding Path="VerticalOffset" ElementName="ContextMenuScrollViewer" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Canvas.Left" TargetName="OpaqueRect">
+                                <Setter.Value>
+                                    <Binding Path="HorizontalOffset" ElementName="ContextMenuScrollViewer" />
+                                </Setter.Value>
+                            </Setter>
+                            <Trigger.Value>
+                                <s:Boolean>False</s:Boolean>
+                            </Trigger.Value>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

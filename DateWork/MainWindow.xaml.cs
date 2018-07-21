@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DateWork.Models;
+using FirstFloor.ModernUI.Windows.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,18 @@ namespace DateWork
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : ModernWindow
     {
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = AppModel.Current;
+            Closed += MainWindow_Closed;
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            AppModel.Clear();
         }
     }
 }

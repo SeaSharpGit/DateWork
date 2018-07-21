@@ -1,12 +1,63 @@
-﻿<Window x:Class="DateWork.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DateWork"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+﻿<mui:ModernWindow x:Class="DateWork.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  xmlns:help="clr-namespace:DateWork.Helpers"
+                  xmlns:ser="clr-namespace:DateWork.Services"
+                  WindowChrome.WindowChrome="{DynamicResource WindowChromeKey}"
+                  ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None" help:WindowDrag.CanDrag="True"
+                  Title="DateWork" Width="1200" Height="700" Template="{DynamicResource MainWindowStyle}" HorizontalAlignment="Stretch">
+    <Window.Resources>
+        <ResourceDictionary>
+            <WindowChrome x:Key="WindowChromeKey">
+                <WindowChrome.ResizeBorderThickness>
+                    <Thickness>5</Thickness>
+                </WindowChrome.ResizeBorderThickness>
+            </WindowChrome>
+            <!--<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DateWork;component/Themes/MainWindow.xaml"/>
+            </ResourceDictionary.MergedDictionaries>-->
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Background="{StaticResource LightGradientBrush}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="日历"/>
+                <Button Content="日历"/>
+                <Button Content="日历"/>
+                <Button Content="日历"/>
+                <!--<ctrl:LogoTextButton Text="新增账号" ImageMargin="0,0,0,0"
+                                     ImagePath="/CCMail;component/Images/新增账号.png" 
+                                     Command="{x:Static ser:CommonCommands.CreateConnectCommand}"/>
+                <ctrl:MenuSplitButton Text="收取" ImageMargin="0,0,0,0"
+                                      ImagePath="/CCMail;component/Images/收取.png" 
+                                      Command="{x:Static ser:CommonCommands.RefreshMailCommand}">
+                    <MenuItem Header="收取所有账号" Command="{x:Static ser:CommonCommands.RefreshMailsCommand}"/>
+                </ctrl:MenuSplitButton>
+                <ctrl:LogoTextButton Text="写邮件" ImageMargin="0,1,0,-1"
+                                     ImagePath="/CCMail;component/Images/写邮件.png"
+                                     Command="{x:Static ser:CommonCommands.CreateSendCommand}"/>
+                <ctrl:LogoTextButton Text="回复" ImageMargin="0,0,0,0"
+                                     ImagePath="/CCMail;component/Images/回复.png" 
+                                     Command="{x:Static ser:CommonCommands.ReplyMailCommand}"/>
+                -->
+                <!--<ctrl:LogoTextButton Text="转发" ImageMargin="0,0,0,0"
+                                     ImagePath="/CCMail;component/Images/转发.png"
+                                     Command="{x:Static ser:CommonCommands.ForwardMailCommand}"/>-->
+                <!--
+                <ctrl:LogoTextButton Text="删除" ImageMargin="0,0,0,0"
+                                     ImagePath="/CCMail;component/Images/删除.png"
+                                     Command="{x:Static ser:CommonCommands.DeleteMailCommand}"/>-->
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#D3D3D3">
+            <ListBox >
+
+            </ListBox>
+        </Border>
     </Grid>
-</Window>
+</mui:ModernWindow>
