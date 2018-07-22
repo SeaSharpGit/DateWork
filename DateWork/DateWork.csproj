@@ -61,6 +61,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\DayControl.cs" />
+    <Compile Include="Heplers\DateHelper.cs" />
+    <Compile Include="Heplers\MonthDayHelper.cs" />
     <Compile Include="Services\CommonCommands.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -92,6 +95,14 @@
     <Page Include="Themes\ContextMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\ScrollBar.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -131,8 +142,6 @@
     <Content Include="DLLs\FirstFloor.ModernUI.dll" />
     <Resource Include="Images\logo.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

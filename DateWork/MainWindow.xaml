@@ -9,14 +9,14 @@
                   Title="DateWork" Width="1200" Height="700" Template="{DynamicResource MainWindowStyle}" HorizontalAlignment="Stretch">
     <Window.Resources>
         <ResourceDictionary>
-            <WindowChrome x:Key="WindowChromeKey"> 
+            <WindowChrome x:Key="WindowChromeKey">
                 <WindowChrome.ResizeBorderThickness>
                     <Thickness>5</Thickness>
                 </WindowChrome.ResizeBorderThickness>
             </WindowChrome>
-            <!--<ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/DateWork;component/Themes/MainWindow.xaml"/>
-            </ResourceDictionary.MergedDictionaries>-->
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Grid x:Name="LayoutRoot">
@@ -26,38 +26,31 @@
         </Grid.RowDefinitions>
         <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Background="{StaticResource LightGradientBrush}">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Content="日历"/>
-                <Button Content="日历"/>
-                <Button Content="日历"/>
-                <Button Content="日历"/>
-                <!--<ctrl:LogoTextButton Text="新增账号" ImageMargin="0,0,0,0"
-                                     ImagePath="/CCMail;component/Images/新增账号.png" 
-                                     Command="{x:Static ser:CommonCommands.CreateConnectCommand}"/>
-                <ctrl:MenuSplitButton Text="收取" ImageMargin="0,0,0,0"
-                                      ImagePath="/CCMail;component/Images/收取.png" 
-                                      Command="{x:Static ser:CommonCommands.RefreshMailCommand}">
-                    <MenuItem Header="收取所有账号" Command="{x:Static ser:CommonCommands.RefreshMailsCommand}"/>
-                </ctrl:MenuSplitButton>
-                <ctrl:LogoTextButton Text="写邮件" ImageMargin="0,1,0,-1"
-                                     ImagePath="/CCMail;component/Images/写邮件.png"
-                                     Command="{x:Static ser:CommonCommands.CreateSendCommand}"/>
-                <ctrl:LogoTextButton Text="回复" ImageMargin="0,0,0,0"
-                                     ImagePath="/CCMail;component/Images/回复.png" 
-                                     Command="{x:Static ser:CommonCommands.ReplyMailCommand}"/>
-                -->
-                <!--<ctrl:LogoTextButton Text="转发" ImageMargin="0,0,0,0"
-                                     ImagePath="/CCMail;component/Images/转发.png"
-                                     Command="{x:Static ser:CommonCommands.ForwardMailCommand}"/>-->
-                <!--
-                <ctrl:LogoTextButton Text="删除" ImageMargin="0,0,0,0"
-                                     ImagePath="/CCMail;component/Images/删除.png"
-                                     Command="{x:Static ser:CommonCommands.DeleteMailCommand}"/>-->
+                <Button x:Name="YearUp" Content="↑" Click="YearUp_Click"/>
+                <TextBlock Text="{Binding Year}"/>
+                <Button x:Name="YearDown" Content="↓" Click="YearDown_Click"/>
+
+                <Button x:Name="MonthUp" Content="↑" Click="MonthUp_Click"/>
+                <TextBlock Text="{Binding Month}"/>
+                <Button x:Name="MonthDown" Content="↓" Click="MonthDown_Click"/>
             </StackPanel>
         </Border>
         <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#D3D3D3">
-            <ListBox >
 
-            </ListBox>
         </Border>
+        <ListBox Grid.Row="1" BorderThickness="0" Margin="0" Padding="0"
+                 ItemsSource="{Binding Days}"
+                 ItemContainerStyle="{StaticResource DayListBoxItem}"
+                 ItemTemplate="{StaticResource DayDataTemplate}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="7"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+
+
+
+
     </Grid>
 </mui:ModernWindow>

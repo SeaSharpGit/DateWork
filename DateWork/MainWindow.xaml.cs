@@ -33,5 +33,45 @@ namespace DateWork
         {
             AppModel.Clear();
         }
+
+        private void YearUp_Click(object sender, RoutedEventArgs e)
+        {
+            AppModel.Current.Year--;
+            AppModel.Current.Refresh();
+        }
+
+        private void YearDown_Click(object sender, RoutedEventArgs e)
+        {
+            AppModel.Current.Year++;
+            AppModel.Current.Refresh();
+        }
+
+        private void MonthUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (AppModel.Current.Month == 1)
+            {
+                AppModel.Current.Year--;
+                AppModel.Current.Month = 12;
+            }
+            else
+            {
+                AppModel.Current.Month--;
+            }
+            AppModel.Current.Refresh();
+        }
+
+        private void MonthDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (AppModel.Current.Month == 12)
+            {
+                AppModel.Current.Year++;
+                AppModel.Current.Month = 1;
+            }
+            else
+            {
+                AppModel.Current.Month++;
+            }
+            AppModel.Current.Refresh();
+        }
     }
 }

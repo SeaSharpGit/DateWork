@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DateWork.Models
 {
-    public class DateModel : EntityBase 
+    public class DayModel : EntityBase
     {
         #region 属性 Day
-        private int _Day = 0;
-        public int Day
+        private DateTime _Day = DateTime.Now;
+        public DateTime Day
         {
             get
             {
@@ -21,22 +21,28 @@ namespace DateWork.Models
             {
                 _Day = value;
                 RaisePropertyChanged(() => Day);
+                Init();
             }
         }
-        #endregion 
 
-        #region 属性 MoonDay
-        private int _MoonDay = 0;
-        public int MoonDay
+        private void Init()
+        {
+            DayName = Day.Day.ToString();
+        }
+        #endregion
+
+        #region 属性 DayName
+        private string _DayName = string.Empty;
+        public string DayName
         {
             get
             {
-                return _MoonDay;
+                return _DayName;
             }
             set
             {
-                _MoonDay = value;
-                RaisePropertyChanged(() => MoonDay);
+                _DayName = value;
+                RaisePropertyChanged(() => DayName);
             }
         }
         #endregion
