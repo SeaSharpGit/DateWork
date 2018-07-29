@@ -1,4 +1,5 @@
 ﻿using DateWork.Heplers;
+using DateWork.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace DateWork.Controls
 {
@@ -37,10 +39,9 @@ namespace DateWork.Controls
 
         protected void OnDayValueChanged()
         {
-            DayName = Day.Day.ToString();
-            MonthDayName = MonthDayHelper.GetMonthDateTime(Day);
-            Debug.WriteLine(DayName);
-            Debug.WriteLine(MonthDayName);
+            RefreshDayName();
+            RefreshMonthDayName();
+            RefreshBackground();
         }
         #endregion
 
@@ -66,6 +67,11 @@ namespace DateWork.Controls
         {
 
         }
+
+        private void RefreshDayName()
+        {
+            DayName = Day.Day.ToString();
+        }
         #endregion
 
         #region MonthDayName DependencyProperty
@@ -90,8 +96,32 @@ namespace DateWork.Controls
         {
 
         }
+
+        private void RefreshMonthDayName()
+        {
+            MonthDayName = MonthDayHelper.GetMonthDateTime(Day);
+        }
         #endregion
 
+        private void RefreshBackground()
+        {
+            var now = DateTime.Now;
+            if (Day.Year == now.Year && Day.Month == now.Month && Day.Day == now.Day)
+            {
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#25ad5e"));
+            }
+            else
+            {
+                if (Day.Year == AppModel.Current.Year && Day.Month == AppModel.Current.Month)
+                {
+                    Background = new SolidColorBrush(Colors.White);
+                }
+                else
+                {
+                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
+                }
+            }
+        }
 
 
     }

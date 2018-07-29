@@ -22,7 +22,8 @@
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="44"/>
-            <RowDefinition/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Background="{StaticResource LightGradientBrush}">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -36,9 +37,26 @@
             </StackPanel>
         </Border>
         <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#D3D3D3">
-
+            <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="一" TextAlignment="Center" FontSize="24" />
+                <TextBlock Text="二" TextAlignment="Center" FontSize="24" Grid.Column="1"/>
+                <TextBlock Text="三" TextAlignment="Center" FontSize="24" Grid.Column="2"/>
+                <TextBlock Text="四" TextAlignment="Center" FontSize="24" Grid.Column="3"/>
+                <TextBlock Text="五" TextAlignment="Center" FontSize="24" Grid.Column="4"/>
+                <TextBlock Text="六" TextAlignment="Center" FontSize="24" Grid.Column="5"/>
+                <TextBlock Text="日" TextAlignment="Center" FontSize="24" Grid.Column="6"/>
+            </Grid>
         </Border>
-        <ListBox Grid.Row="1" BorderThickness="0" Margin="0" Padding="0"
+        <ListBox Grid.Row="2" BorderThickness="0" Margin="0" Padding="0"
                  ItemsSource="{Binding Days}"
                  ItemContainerStyle="{StaticResource DayListBoxItem}"
                  ItemTemplate="{StaticResource DayDataTemplate}">

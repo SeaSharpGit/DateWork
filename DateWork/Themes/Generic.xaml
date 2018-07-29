@@ -13,8 +13,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ctrl:DayControl">
-                    <StackPanel HorizontalAlignment="Center">
-                        <TextBlock TextAlignment="Center" FontSize="20"
+                    <StackPanel HorizontalAlignment="Stretch" Background="{TemplateBinding Background}">
+                        <TextBlock TextAlignment="Center" FontSize="26"
                                    Text="{TemplateBinding DayName}"/>
                         <TextBlock TextAlignment="Center" FontSize="12"
                                    Text="{TemplateBinding MonthDayName}" />
@@ -23,8 +23,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
-    
-    
+
+
+
+
 </ResourceDictionary>

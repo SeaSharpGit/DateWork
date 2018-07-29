@@ -7,18 +7,16 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border Name="Bd" Background="Transparent" BorderBrush="Transparent" BorderThickness="1"
-                            Margin="0" Padding="0" SnapsToDevicePixels="True">
-                        <ctrl:DayControl Day="{Binding .}"/>
+                    <Border Name="Bd" Background="Transparent" BorderBrush="#c8e2c6" BorderThickness="3"
+                            Margin="2" Padding="0" SnapsToDevicePixels="True">
+                        <ctrl:DayControl Day="{Binding .}" HorizontalAlignment="Stretch"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="LightGray"/>
-                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource LightGradientBrush}"/>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#25ad5e"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="LightGray"/>
-                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource LightGradientBrush}"/>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#25ad5e"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -38,11 +36,11 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="1" FontSize="12" TextTrimming="CharacterEllipsis" Margin="5,0"
-                        ToolTip="{Binding FileName}"
-                        Text="{Binding FileName}"/>
+                       ToolTip="{Binding FileName}"
+                       Text="{Binding FileName}"/>
 
             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="12" Foreground="Gray" TextTrimming="CharacterEllipsis" Margin="5,0"
-                                               Text="{Binding FileSize}"/>
+                       Text="{Binding FileSize}"/>
 
         </Grid>
     </DataTemplate>

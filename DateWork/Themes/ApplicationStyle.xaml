@@ -210,7 +210,7 @@
                             </Grid.RowDefinitions>
                             <Border Background="{StaticResource DrakGradientBrush}"/>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                                <Image Margin="10,0,0,0" Height="15" Source="/DateWork;component/Images/logo.ico" />
+                                <Image Margin="10,0,0,0" Height="15" Source="/DateWork;component/Images/logo.png" />
                                 <TextBlock Margin="6,0,0,0" Text="{TemplateBinding Title}" Foreground="White" FontSize="12" VerticalAlignment="Center"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0" WindowChrome.IsHitTestVisibleInChrome="True">
