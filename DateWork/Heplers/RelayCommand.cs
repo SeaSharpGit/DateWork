@@ -1,94 +1,50 @@
-﻿/* 
- * author      : singba singba@163.com 
- * version     : 20161221
- * source      : AF.Wpf
- * license     : free use or modify
- * description : WPF的按钮命令的基类，本程序根据微软WPF例子中的RelayCommmand做了些扩展封装
- */
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DateWork.Helpers
+namespace DateWork.Heplers
 {
-    /// <summary>
-    /// 界面命令类
-    /// </summary>
     public class RelayCommand : ICommand
     {
-        #region Fields
+        private readonly Predicate<object> _CanExecute = null;
+        private readonly Action<object> _Execute = null;
 
-        private Func<object, bool> _canExecute;
-        private Action<object> _execute;
-        private bool _IsExecuting = false;
-        #endregion // Fields
-
-        #region Constructors
-
-        public RelayCommand(Action<object> execute)
-            : this(execute, null)
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
-        }
-
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute)
-        {
-            ResetActions(execute, canExecute);
-        }
-
-        #endregion // Constructors
-
-        //特殊情况下方法需要重设
-
-        #region ICommand Members
-
-        public bool CanExecute(object parameter)
-        {
-            return _canExecute == null ? true : ((!_IsExecuting) && _canExecute(parameter));
+            _Execute = execute ?? throw new ArgumentNullException("execute");
+            _CanExecute = canExecute;
         }
 
         public event EventHandler CanExecuteChanged
         {
-            add { System.Windows.Input.CommandManager.RequerySuggested += value; }
-            remove { System.Windows.Input.CommandManager.RequerySuggested -= value; }
+            add
+            {
+                if (_CanExecute != null)
+                {
+                    CommandManager.RequerySuggested += value;
+                }
+            }
+            remove
+            {
+                if (_CanExecute != null)
+                {
+                    CommandManager.RequerySuggested -= value;
+                }
+            }
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return _CanExecute == null ? true : _CanExecute(parameter);
         }
 
         public void Execute(object parameter)
         {
-            try
-            {
-                if (_IsExecuting)
-                    return;
-                _IsExecuting = true;
-                RaiseCanExecuteChanged();
-                _execute(parameter);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                _IsExecuting = false;
-                RaiseCanExecuteChanged();
-            }
+            _Execute(parameter);
         }
 
-        #endregion
-
-        public void ResetActions(Action<object> execute, Func<object, bool> canExecute)
-        {
-            if (execute != null)
-            {
-                _execute = execute;
-            }
-            if (canExecute != null)
-            {
-                _canExecute = canExecute;
-            }
-        }
-
-        public void RaiseCanExecuteChanged()
-        {
-            System.Windows.Input.CommandManager.InvalidateRequerySuggested();
-        }
     }
 }

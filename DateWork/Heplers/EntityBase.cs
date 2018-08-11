@@ -6,10 +6,7 @@
  * description : 通用类型基类
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace DateWork.Helpers
 {
@@ -24,22 +21,21 @@ namespace DateWork.Helpers
 
         protected virtual void RaisePropertyChanged(string name)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(name));
-            }
+            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(name));
         }
 
         protected virtual void RaisePropertyChanged<TProperty>(Expression<Func<TProperty>> property)
         {
             var lambda = (LambdaExpression)property;
             MemberExpression memberExpression;
-            if (lambda.Body is UnaryExpression)
+            if (lambda.Body is UnaryExpression ue)
             {
-                var unaryExpression = (UnaryExpression)lambda.Body;
-                memberExpression = (MemberExpression)unaryExpression.Operand;
+                memberExpression = (MemberExpression)ue.Operand;
             }
-            else memberExpression = (MemberExpression)lambda.Body;
+            else
+            {
+                memberExpression = (MemberExpression)lambda.Body;
+            }
             RaisePropertyChanged(memberExpression.Member.Name);
         }
         #endregion

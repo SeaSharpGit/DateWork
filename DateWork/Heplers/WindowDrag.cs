@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace DateWork.Helpers
@@ -20,9 +16,9 @@ namespace DateWork.Helpers
         private static void OnCanDragChanged(DependencyObject d,
             DependencyPropertyChangedEventArgs e)
         {
-            if (d is Window)
+            if (d is Window win)
             {
-                BindWindow(d as Window);
+                BindWindow(win);
             }
         }
 
@@ -49,17 +45,19 @@ namespace DateWork.Helpers
 
         private static void Window_Closed(object sender, EventArgs e)
         {
-            var window = sender as Window;
-            window.MouseLeftButtonDown -= Window_MouseLeftButtonDown;
-            window.Closed -= Window_Closed;
+            if (sender is Window win)
+            {
+                win.MouseLeftButtonDown -= Window_MouseLeftButtonDown;
+                win.Closed -= Window_Closed;
+            }
         }
 
         private static void Window_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             //编辑文本框，失去焦点后，会提示错误鼠标左键没有按下不能DargMove,所以加了一个判断
-            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed && sender is Window win)
             {
-                (sender as Window).DragMove();
+                win.DragMove();
             }
         }
     }

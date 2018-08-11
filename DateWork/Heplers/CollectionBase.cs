@@ -6,13 +6,13 @@
  * description : WPF应用程序的操作帮助类
  */
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Collections.Specialized;
-using System.Windows.Threading;
 using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
+using System.Windows.Threading;
 
 namespace DateWork.Helpers
 {
@@ -29,10 +29,7 @@ namespace DateWork.Helpers
 
         protected virtual void RaisePropertyChanged(string name)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(name));
-            }
+            PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(name));
         }
         #endregion
 
