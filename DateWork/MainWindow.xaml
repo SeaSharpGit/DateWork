@@ -27,6 +27,8 @@
         </Grid.RowDefinitions>
         <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Background="{StaticResource LightGradientBrush}">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Content="添加"
+                        Command="{Binding Source={x:Static ser:CommonCommands.OpenNoteWindowCommand}}"/>
                 <Button x:Name="YearUp" Content="↑" Click="YearUp_Click"/>
                 <TextBlock Text="{Binding Year}"/>
                 <Button x:Name="YearDown" Content="↓" Click="YearDown_Click"/>
@@ -47,13 +49,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="一" TextAlignment="Center" FontSize="24" />
-                <TextBlock Text="二" TextAlignment="Center" FontSize="24" Grid.Column="1"/>
-                <TextBlock Text="三" TextAlignment="Center" FontSize="24" Grid.Column="2"/>
-                <TextBlock Text="四" TextAlignment="Center" FontSize="24" Grid.Column="3"/>
-                <TextBlock Text="五" TextAlignment="Center" FontSize="24" Grid.Column="4"/>
-                <TextBlock Text="六" TextAlignment="Center" FontSize="24" Grid.Column="5"/>
-                <TextBlock Text="日" TextAlignment="Center" FontSize="24" Grid.Column="6"/>
+                <TextBlock Text="一" TextAlignment="Center" FontSize="26" />
+                <TextBlock Text="二" TextAlignment="Center" FontSize="26" Grid.Column="1"/>
+                <TextBlock Text="三" TextAlignment="Center" FontSize="26" Grid.Column="2"/>
+                <TextBlock Text="四" TextAlignment="Center" FontSize="26" Grid.Column="3"/>
+                <TextBlock Text="五" TextAlignment="Center" FontSize="26" Grid.Column="4"/>
+                <TextBlock Text="六" TextAlignment="Center" FontSize="26" Grid.Column="5"/>
+                <TextBlock Text="日" TextAlignment="Center" FontSize="26" Grid.Column="6"/>
             </Grid>
         </Border>
         <ListBox Grid.Row="2" BorderThickness="0" Margin="0" Padding="0"

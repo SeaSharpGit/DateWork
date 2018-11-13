@@ -10,10 +10,6 @@ using System.Linq.Expressions;
 
 namespace DateWork.Helpers
 {
-    /// <summary>
-    /// singba:20120807
-    /// 这个基类只作为INotifyPropertyChanged的实现，不再是Entity的基类
-    /// </summary>
     public class EntityBase : System.ComponentModel.INotifyPropertyChanged
     {
         #region INotifyPropertyChanged Members

@@ -22,13 +22,17 @@ namespace DateWork
     /// </summary>
     public partial class MainWindow : ModernWindow
     {
+        public static MainWindow Current { get; set; } = null;
+
         public MainWindow()
         {
             InitializeComponent();
+            Current = this;
             DataContext = AppModel.Current;
             Closed += MainWindow_Closed;
         }
 
+        #region 事件
         private void MainWindow_Closed(object sender, EventArgs e)
         {
             AppModel.Clear();
@@ -73,5 +77,6 @@ namespace DateWork
             }
             AppModel.Current.Refresh();
         }
+        #endregion
     }
 }

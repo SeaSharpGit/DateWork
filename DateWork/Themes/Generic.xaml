@@ -14,7 +14,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ctrl:DayControl">
                     <StackPanel HorizontalAlignment="Stretch" Background="{TemplateBinding Background}">
-                        <TextBlock TextAlignment="Center" FontSize="26"
+                        <TextBlock TextAlignment="Center" FontSize="26" Margin="0,10,0,0"
                                    Text="{TemplateBinding DayName}"/>
                         <TextBlock TextAlignment="Center" FontSize="12"
                                    Text="{TemplateBinding MonthDayName}" />
