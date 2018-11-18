@@ -68,7 +68,9 @@
     <Compile Include="Heplers\DateHelper.cs" />
     <Compile Include="Heplers\RelayCommand.cs" />
     <Compile Include="Heplers\MonthDayHelper.cs" />
+    <Compile Include="Heplers\XmlHelper.cs" />
     <Compile Include="Services\CommonCommands.cs" />
+    <Compile Include="Services\Notes.cs" />
     <Compile Include="Windows\NoteViewModel.cs" />
     <Compile Include="Windows\NoteWindow.xaml.cs">
       <DependentUpon>NoteWindow.xaml</DependentUpon>
@@ -150,7 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLLs\FirstFloor.ModernUI.dll" />
-    <Resource Include="note.xml" />
+    <Resource Include="datework.xml" />
     <Resource Include="logo.ico" />
     <Resource Include="Images\logo.ico" />
     <Resource Include="Images\logo.png" />
