@@ -5,13 +5,16 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/FirstFloor.ModernUI;component/Assets/ModernUI.xaml" />
+        <ResourceDictionary Source="/DateWork;component/Themes/BaseStyle.xaml" />
         <ResourceDictionary Source="/DateWork;component/Themes/Colors.xaml" />
         <ResourceDictionary Source="/DateWork;component/Themes/ContextMenu.xaml" />
         <ResourceDictionary Source="/DateWork;component/Themes/ScrollBar.xaml" />
     </ResourceDictionary.MergedDictionaries>
-
+    
     <con:ObjectToTypeConverter x:Key="ObjectToTypeConverter"/>
     <con:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    <con:IsMonthDayToChineseConverter x:Key="IsMonthDayToChineseConverter"/>
+    <con:StringToDateTimeConverter x:Key="StringToDateTimeConverter"/>
 
     <LinearGradientBrush x:Key="LightGradientBrush" StartPoint="0.5,0" EndPoint="0.5,1" xmlns:Freeze="True">
         <GradientStop Offset="0" Color="#edfeec"/>
@@ -218,13 +221,13 @@
                                         Style="{StaticResource SystemMinButton}"
                                         Command="{x:Static SystemCommands.MinimizeWindowCommand}"/>
 
-                                <Button x:Name="Restore" Width="28" Height="28" ToolTip="恢复" Visibility="Collapsed"
+                                <!--<Button x:Name="Restore" Width="28" Height="28" ToolTip="恢复" Visibility="Collapsed"
                                         Command="{Binding Source={x:Static SystemCommands.RestoreWindowCommand}}"
                                         Style="{StaticResource SystemRestoreButton}"/>
 
                                 <Button x:Name="Maximize" Width="28" Height="28" ToolTip="最大化"
                                         Command="{Binding Source={x:Static SystemCommands.MaximizeWindowCommand}}"
-                                        Style="{StaticResource SystemMaxButton}"/>
+                                        Style="{StaticResource SystemMaxButton}"/>-->
 
                                 <Button Width="28" Height="28" ToolTip="关闭"
                                         Style="{DynamicResource SystemCloseButton}"
@@ -238,17 +241,17 @@
                 </Border>
             </Grid>
         </Border>
-        <ControlTemplate.Triggers>
+        <!--<ControlTemplate.Triggers>
             <Trigger Property="WindowState" Value="Maximized">
                 <Setter TargetName="Maximize" Property="Visibility" Value="Collapsed" />
                 <Setter TargetName="Restore" Property="Visibility" Value="Visible" />
             </Trigger>
-        </ControlTemplate.Triggers>
+        </ControlTemplate.Triggers>-->
     </ControlTemplate>
 
 
 
-    <!--确定/取消按钮-->
+    <!--普通按钮-->
     <Style x:Key="ChooseButton" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="#e2e1e2"/>
@@ -287,6 +290,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    
 
 
 

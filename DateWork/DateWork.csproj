@@ -65,16 +65,25 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\DayControl.cs" />
+    <Compile Include="Controls\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\StringToDateTimeConverter.cs" />
+    <Compile Include="Converters\IsMonthDayToChineseConverter.cs" />
     <Compile Include="Heplers\DateHelper.cs" />
     <Compile Include="Heplers\RelayCommand.cs" />
     <Compile Include="Heplers\MonthDayHelper.cs" />
     <Compile Include="Heplers\XmlHelper.cs" />
     <Compile Include="Services\CommonCommands.cs" />
-    <Compile Include="Services\Notes.cs" />
+    <Compile Include="Models\Notes.cs" />
     <Compile Include="Windows\NoteViewModel.cs" />
     <Compile Include="Windows\NoteWindow.xaml.cs">
       <DependentUpon>NoteWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +105,10 @@
     <Page Include="Themes\ApplicationStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\BaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Colors.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -152,9 +165,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLLs\FirstFloor.ModernUI.dll" />
-    <Resource Include="datework.xml" />
     <Resource Include="logo.ico" />
     <Resource Include="Images\logo.ico" />
+    <Resource Include="datework.xml" />
     <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup />

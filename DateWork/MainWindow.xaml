@@ -5,8 +5,8 @@
                   xmlns:help="clr-namespace:DateWork.Helpers"
                   xmlns:ser="clr-namespace:DateWork.Services"
                   WindowChrome.WindowChrome="{DynamicResource WindowChromeKey}"
-                  ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None" help:WindowDrag.CanDrag="True"
-                  Title="DateWork" Width="1200" Height="700" Template="{DynamicResource MainWindowStyle}" HorizontalAlignment="Stretch">
+                  ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" WindowStyle="None" help:WindowDrag.CanDrag="True"
+                  Title="工作日历" Width="1200" Height="700" Template="{DynamicResource MainWindowStyle}" HorizontalAlignment="Stretch">
     <Window.Resources>
         <ResourceDictionary>
             <WindowChrome x:Key="WindowChromeKey">
@@ -27,7 +27,7 @@
         </Grid.RowDefinitions>
         <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Background="{StaticResource LightGradientBrush}">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Content="添加"
+                <Button Content="备忘录"
                         Command="{Binding Source={x:Static ser:CommonCommands.OpenNoteWindowCommand}}"/>
                 <Button x:Name="YearUp" Content="↑" Click="YearUp_Click"/>
                 <TextBlock Text="{Binding Year}"/>
@@ -58,7 +58,7 @@
                 <TextBlock Text="日" TextAlignment="Center" FontSize="26" Grid.Column="6"/>
             </Grid>
         </Border>
-        <ListBox Grid.Row="2" BorderThickness="0" Margin="0" Padding="0"
+        <ListBox Grid.Row="2" BorderThickness="0" Margin="0" Padding="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ItemsSource="{Binding Days}"
                  ItemContainerStyle="{StaticResource DayListBoxItem}"
                  ItemTemplate="{StaticResource DayDataTemplate}">

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <Notes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Note Name="王海的生日" IsMonthDay="true" Date="1991-1-16" />
-  <Note Name="王超的生日" IsMonthDay="false" Date="1990-5-30" />
+  <Note Name="我的生日" IsMonthDay="true" Date="1991-01-16" />
+  <Note Name="王超的生日" IsMonthDay="true" Date="1990-05-30" />
+  <Note Name="王羿泽的生日" IsMonthDay="true" Date="2016-11-01" />
 </Notes>

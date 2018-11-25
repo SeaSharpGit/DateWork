@@ -34,7 +34,6 @@ namespace DateWork.Services
         }
         #endregion
 
-
         public static Notes LoadXml()
         {
             return _Path.XmlToObject<Notes>();

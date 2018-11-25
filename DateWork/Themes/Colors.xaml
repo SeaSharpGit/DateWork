@@ -2,27 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:mui="http://firstfloorsoftware.com/ModernUI">
-
-    <sys:Double x:Key="BaseFontSize" xmlns:Freeze="True">14</sys:Double>
-
-    <Style TargetType="{x:Type TextBox}">
-        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
-    </Style>
-    <Style TargetType="{x:Type CheckBox}">
-        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
-    </Style>
-    <Style TargetType="{x:Type TextBlock}">
-        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
-    </Style>
-    <Style TargetType="{x:Type Window}">
-        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
-        <Setter Property="FontSize" Value="{DynamicResource BaseFontSize}"/>
-    </Style>
-    <Style TargetType="{x:Type mui:ModernWindow}">
-        <Setter Property="FontFamily" Value="Microsoft YaHei"/>
-        <Setter Property="FontSize" Value="{DynamicResource BaseFontSize}"/>
-    </Style>
-
     <Color x:Key="AccentColor" xmlns:Freeze="True">#2ecc71</Color>
     <SolidColorBrush x:Key="MyBrush" Color="#2ecc71" xmlns:Freeze="True"/>
     <Color x:Key="LabelTextColor" xmlns:Freeze="True">#212121</Color>

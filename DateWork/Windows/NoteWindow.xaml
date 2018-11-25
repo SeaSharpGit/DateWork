@@ -5,22 +5,114 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:mui="http://firstfloorsoftware.com/ModernUI"
                   WindowStartupLocation="CenterScreen" WindowStyle="None"
-                  Title="Note" Height="450" Width="800" Template="{DynamicResource WindowBaseStyle}" HorizontalAlignment="Stretch">
+                  Title="备忘录" Height="370" Width="550" Template="{DynamicResource WindowBaseStyle}" HorizontalAlignment="Stretch">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NoteListBoxItem" TargetType="{x:Type ListBoxItem}">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                            <Border Name="Bd" 
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Padding="{TemplateBinding Padding}"
+                                    SnapsToDevicePixels="true">
+                                <ContentControl Content="{TemplateBinding Content}"
+                                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger SourceName="Bd" Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Bd" Property="Background" Value="{StaticResource ItemBackgroundHover}"/>
+                                    <Setter Property="Foreground" Value="{StaticResource ItemTextHover}"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="true">
+                                    <Setter TargetName="Bd" Property="Background" Value="{StaticResource ItemBackgroundSelected}"/>
+                                    <Setter Property="Foreground" Value="{StaticResource ItemTextSelected}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="TalkGroups" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ItemContainerStyle="{StaticResource NoteListBoxItem}"
+                     ItemsSource="{Binding Notes.Items}"
+                     SelectedItem="{Binding SelectedNote}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0"
+                                   Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+            </ListBox>
+            <Grid Grid.Column="1" Margin="10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Text="名 称 ：" VerticalAlignment="Center" TextAlignment="Center"/>
+                <TextBox Height="24" Grid.Column="1" Width="170" HorizontalAlignment="Left" 
+                         Text="{Binding Name,UpdateSourceTrigger=PropertyChanged}"/>
 
-        <Border Grid.Row="1" Padding="0,0,5,0">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-                <Button Margin="5,0,5,0" Height="26" Width="60" Content="确定" IsDefault="True"
-                        Style="{StaticResource ChooseButton}"
-                        Command="{Binding OKCommand}"/>
-                <Button Margin="5,0,5,0" Height="26" Width="60" Content="取消" IsCancel="True"
-                        Style="{StaticResource ChooseButton}"
-                        Command="{Binding CancelCommand}"/>
-            </StackPanel>
-        </Border>
+                <TextBlock Text="类 型 ：" Grid.Row="1" VerticalAlignment="Center" TextAlignment="Center"/>
+                <ComboBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Width="170" HorizontalAlignment="Left"
+                          Text="{Binding IsMonthDay,Converter={StaticResource IsMonthDayToChineseConverter}}">
+                    <ComboBoxItem Content="阳历"/>
+                    <ComboBoxItem Content="阴历"/>
+                </ComboBox>
+
+                <TextBlock Text="日 期 ：" Grid.Row="2" VerticalAlignment="Center" TextAlignment="Center"/>
+                <DatePicker Width="170" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="1" Height="26" FontSize="14" FontFamily="Microsoft YaHei" SelectedDateFormat="Long"
+                            SelectedDate="{Binding Date,Converter={StaticResource StringToDateTimeConverter},ConverterParameter=yyyy-MM-dd}"/>
+
+
+            </Grid>
+        </Grid>
+
+        <Button Grid.Row="1" Margin="10,0,0,0" Height="26" Width="60" Content="重置" HorizontalAlignment="Left" VerticalAlignment="Center"
+                Style="{StaticResource ChooseButton}"
+                Command="{Binding ResetCommand}"/>
+
+        <StackPanel Grid.Row="1" Margin="0,0,5,0" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Margin="5,0,5,0" Height="26" Width="60" Content="新增"
+                    Style="{StaticResource ChooseButton}"
+                    Command="{Binding AddCommand}"/>
+            <Button Margin="5,0,5,0" Height="26" Width="60" Content="修改"
+                    Style="{StaticResource ChooseButton}"
+                    Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"
+                    Command="{Binding UpdateCommand}"/>
+            <Button Margin="5,0,5,0" Height="26" Width="60" Content="删除"
+                    Style="{StaticResource ChooseButton}"
+                    Visibility="{Binding IsSelected,Converter={StaticResource BoolToVisibilityConverter}}"
+                    Command="{Binding DeleteCommand}"/>
+        </StackPanel>
     </Grid>
 </mui:ModernWindow>
