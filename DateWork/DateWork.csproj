@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="Converters\StringToDateTimeConverter.cs" />
     <Compile Include="Converters\IsMonthDayToChineseConverter.cs" />
+    <Compile Include="Heplers\BaseViewModel.cs" />
     <Compile Include="Heplers\DateHelper.cs" />
     <Compile Include="Heplers\RelayCommand.cs" />
     <Compile Include="Heplers\MonthDayHelper.cs" />
@@ -95,7 +96,6 @@
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="Converters\ObjectToTypeConverter.cs" />
     <Compile Include="Heplers\CollectionBase.cs" />
-    <Compile Include="Heplers\EntityBase.cs" />
     <Compile Include="Heplers\WindowDrag.cs" />
     <Compile Include="Heplers\WpfHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DateWork.Windows
 {
-    public class NoteViewModel : EntityBase
+    public class NoteViewModel : BaseViewModel
     {
         public Action CloseWindow { get; set; } = null;
 
@@ -31,7 +31,7 @@ namespace DateWork.Windows
             set
             {
                 _Name = value;
-                RaisePropertyChanged(() => Name);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -47,7 +47,7 @@ namespace DateWork.Windows
             set
             {
                 _IsSelected = value;
-                RaisePropertyChanged(() => IsSelected);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -63,7 +63,7 @@ namespace DateWork.Windows
             set
             {
                 _Date = value;
-                RaisePropertyChanged(() => Date);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -79,7 +79,7 @@ namespace DateWork.Windows
             set
             {
                 _IsMonthDay = value;
-                RaisePropertyChanged(() => IsMonthDay);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -95,7 +95,7 @@ namespace DateWork.Windows
             set
             {
                 _SelectedNote = value;
-                RaisePropertyChanged(() => SelectedNote);
+                OnPropertyChanged();
                 if (_SelectedNote != null)
                 {
                     Name = _SelectedNote.Name;
@@ -122,7 +122,7 @@ namespace DateWork.Windows
             set
             {
                 _Notes = value;
-                RaisePropertyChanged(() => Notes);
+                OnPropertyChanged();
             }
         }
         #endregion

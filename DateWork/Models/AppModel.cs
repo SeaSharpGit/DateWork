@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DateWork.Models
 {
-    public class AppModel : EntityBase
+    public class AppModel : BaseViewModel
     {
         #region 属性 Current
         private static AppModel _Current = null;
@@ -162,7 +162,7 @@ namespace DateWork.Models
             set
             {
                 _Year = value;
-                RaisePropertyChanged(() => Year);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -178,7 +178,7 @@ namespace DateWork.Models
             set
             {
                 _Month = value;
-                RaisePropertyChanged(() => Month);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -198,7 +198,7 @@ namespace DateWork.Models
             set
             {
                 _Days = value;
-                RaisePropertyChanged(() => Days);
+                OnPropertyChanged();
             }
         }
         #endregion

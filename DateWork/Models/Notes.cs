@@ -1,4 +1,5 @@
 ﻿using DateWork.Helpers;
+using DateWork.Heplers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Xml.Serialization;
 namespace DateWork.Services
 {
     [XmlRoot("Notes")]
-    public class Notes : EntityBase
+    public class Notes : BaseViewModel
     {
         private const string _Path = @"C:\Users\dahai\Desktop\Projects\DateWork\DateWork\datework.xml";
 
@@ -29,7 +30,7 @@ namespace DateWork.Services
             set
             {
                 _Items = value;
-                RaisePropertyChanged(() => Items);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -45,7 +46,7 @@ namespace DateWork.Services
         }
     }
 
-    public class Note : EntityBase
+    public class Note : BaseViewModel
     {
         #region 属性 Name
         private string _Name = null;
@@ -59,7 +60,7 @@ namespace DateWork.Services
             set
             {
                 _Name = value;
-                RaisePropertyChanged(() => Name);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -76,7 +77,7 @@ namespace DateWork.Services
             set
             {
                 _IsMonthDay = value;
-                RaisePropertyChanged(() => IsMonthDay);
+                OnPropertyChanged();
             }
         }
         #endregion
@@ -93,7 +94,7 @@ namespace DateWork.Services
             set
             {
                 _Date = value;
-                RaisePropertyChanged(() => Date);
+                OnPropertyChanged();
             }
         }
         #endregion
