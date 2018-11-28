@@ -17,16 +17,15 @@
                             Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="34"/>
                                 <RowDefinition/>
-                                <RowDefinition Height="20"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock TextAlignment="Center" FontSize="26" Margin="0,5,0,0"
+                            <TextBlock TextAlignment="Center" FontSize="22" Margin="0,4,0,0"
                                        Text="{TemplateBinding DayName}"/>
-                            <!--<TextBlock TextAlignment="Center" FontSize="15" Grid.Row="1" VerticalAlignment="Center"
-                                       Padding="6,0"
-                                       Text="{TemplateBinding NoteText}" TextWrapping="Wrap"/>-->
-                            <TextBlock TextAlignment="Center" FontSize="12" Grid.Row="2"
+                            <TextBlock TextAlignment="Center" FontSize="16" Grid.Row="1" VerticalAlignment="Top" Margin="0,2,0,0" FontWeight="Bold"
+                                       Text="{TemplateBinding NoteText}" TextWrapping="Wrap"/>
+                            <TextBlock TextAlignment="Center" FontSize="14" Grid.Row="2"
                                        Text="{TemplateBinding MonthDayName}"/>
                         </Grid>
                     </Border>

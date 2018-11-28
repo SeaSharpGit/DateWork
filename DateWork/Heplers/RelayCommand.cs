@@ -12,6 +12,10 @@ namespace DateWork.Heplers
         private readonly Predicate<object> _CanExecute = null;
         private readonly Action<object> _Execute = null;
 
+        public RelayCommand(Action<object> execute) : this(execute, null)
+        {
+        }
+
         public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
             _Execute = execute ?? throw new ArgumentNullException("execute");
@@ -38,7 +42,7 @@ namespace DateWork.Heplers
 
         public bool CanExecute(object parameter)
         {
-            return _CanExecute == null ? true : _CanExecute(parameter);
+            return _CanExecute == null || _CanExecute(parameter);
         }
 
         public void Execute(object parameter)

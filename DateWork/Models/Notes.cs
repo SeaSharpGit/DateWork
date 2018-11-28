@@ -7,12 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace DateWork.Services
+namespace DateWork.Models
 {
     [XmlRoot("Notes")]
     public class Notes : BaseViewModel
     {
         private const string _Path = @"C:\Users\dahai\Desktop\Projects\DateWork\DateWork\datework.xml";
+
+        public static Notes Current { get; set; } = LoadXml();
 
         #region 属性 Items
         private CollectionBase<Note> _Items = null;
@@ -43,6 +45,7 @@ namespace DateWork.Services
         public void Save()
         {
             this.ObjectToXml(_Path);
+            Current = LoadXml();
         }
     }
 
@@ -98,8 +101,6 @@ namespace DateWork.Services
             }
         }
         #endregion
-
-
 
 
     }

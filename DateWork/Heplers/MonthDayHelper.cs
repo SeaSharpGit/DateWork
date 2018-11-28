@@ -136,5 +136,34 @@ namespace DateWork.Heplers
 
             return string.Concat(GetMonthYear(year), "年", isleap ? "闰" : string.Empty, GetMonthMonth(month), "月", GetMonthDay(day));
         }
+
+        ///<summary>
+        /// 根据公历获取农历日期（不返回年份和闰）
+        ///</summary>
+        ///<param name="datetime">公历日期</param>
+        ///<return s></return s>
+        public static string GetMonthDateTimeWithoutYearR(DateTime datetime)
+        {
+            int year = ChineseCalendar.GetYear(datetime);
+            int month = ChineseCalendar.GetMonth(datetime);
+            int day = ChineseCalendar.GetDayOfMonth(datetime);
+            //获取闰月， 0 则表示没有闰月
+            int leapMonth = ChineseCalendar.GetLeapMonth(year);
+
+            if (leapMonth > 0)
+            {
+                if (leapMonth == month)
+                {
+                    //闰月
+                    month--;
+                }
+                else if (month > leapMonth)
+                {
+                    month--;
+                }
+            }
+
+            return string.Concat(GetMonthMonth(month), "月", GetMonthDay(day));
+        }
     }
 }

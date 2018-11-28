@@ -41,13 +41,13 @@ namespace DateWork
         private void YearUp_Click(object sender, RoutedEventArgs e)
         {
             AppModel.Current.Year--;
-            AppModel.Current.Refresh();
+            AppModel.Current.RefreshDays();
         }
 
         private void YearDown_Click(object sender, RoutedEventArgs e)
         {
             AppModel.Current.Year++;
-            AppModel.Current.Refresh();
+            AppModel.Current.RefreshDays();
         }
 
         private void MonthUp_Click(object sender, RoutedEventArgs e)
@@ -61,7 +61,7 @@ namespace DateWork
             {
                 AppModel.Current.Month--;
             }
-            AppModel.Current.Refresh();
+            AppModel.Current.RefreshDays();
         }
 
         private void MonthDown_Click(object sender, RoutedEventArgs e)
@@ -75,7 +75,7 @@ namespace DateWork
             {
                 AppModel.Current.Month++;
             }
-            AppModel.Current.Refresh();
+            AppModel.Current.RefreshDays();
         }
         #endregion
     }

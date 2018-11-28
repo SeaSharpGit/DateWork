@@ -1,5 +1,6 @@
 ﻿using DateWork.Helpers;
 using DateWork.Heplers;
+using DateWork.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,10 +41,10 @@ namespace DateWork.Models
             var now = DateTime.Now;
             Year = now.Year;
             Month = now.Month;
-            Refresh();
+            RefreshDays();
         }
 
-        public void Refresh()
+        public void RefreshDays()
         {
             try
             {
@@ -203,6 +204,7 @@ namespace DateWork.Models
         }
         #endregion
 
+        
 
 
 

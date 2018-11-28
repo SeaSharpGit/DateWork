@@ -99,16 +99,60 @@ namespace DateWork.Controls
 
         private void RefreshMonthDayName()
         {
-            MonthDayName = MonthDayHelper.GetMonthDateTime(Day);
+            MonthDayName = MonthDayHelper.GetMonthDateTimeWithoutYearR(Day);
         }
         #endregion
+
+        #region NoteText DependencyProperty
+        public string NoteText
+        {
+            get { return (string)GetValue(NoteTextProperty); }
+            set { SetValue(NoteTextProperty, value); }
+        }
+        public static readonly DependencyProperty NoteTextProperty =
+                DependencyProperty.Register("NoteText", typeof(string), typeof(DayControl),
+                new PropertyMetadata(null, new PropertyChangedCallback(DayControl.OnNoteTextPropertyChanged)));
+
+        private static void OnNoteTextPropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            if (obj is DayControl)
+            {
+                (obj as DayControl).OnNoteTextValueChanged();
+            }
+        }
+
+        protected void OnNoteTextValueChanged()
+        {
+
+        }
+        #endregion
+
+
 
         private void RefreshBackground()
         {
             var now = DateTime.Now;
-            if (Day.Year == now.Year && Day.Month == now.Month && Day.Day == now.Day)
+            var notes = Notes.Current.Items;
+
+            var dayNotes = notes.Where(a => !a.IsMonthDay
+                && Convert.ToDateTime(a.Date).Month == Day.Month
+                && Convert.ToDateTime(a.Date).Day == Day.Day)
+                .Select(a => a.Name).ToList();
+            var monthDayNotes = notes.Where(a => a.IsMonthDay
+                && MonthDayHelper.GetMonthDateTimeWithoutYearR(Convert.ToDateTime(a.Date)) == MonthDayName)
+                .Select(a => a.Name); ;
+            dayNotes.AddRange(monthDayNotes);
+            if (dayNotes.Count > 0)
             {
+                NoteText = string.Join("\r\n", dayNotes);
+                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFB900"));
+                Foreground = new SolidColorBrush(Colors.White);
+            }
+            else if (Day.Year == now.Year && Day.Month == now.Month && Day.Day == now.Day)
+            {
+                NoteText = "今天";
                 Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#25ad5e"));
+                Foreground = new SolidColorBrush(Colors.White);
             }
             else
             {
