@@ -165,5 +165,16 @@ namespace DateWork.Heplers
 
             return string.Concat(GetMonthMonth(month), "月", GetMonthDay(day));
         }
+
+        public static bool IsSameMonthDay(DateTime dt1, DateTime dt2)
+        {
+            return dt1.Month == dt2.Month && dt1.Day == dt2.Day;
+        }
+
+        public static bool IsSameMonthMonthMonthDay(DateTime dt1, DateTime dt2)
+        {
+            return GetMonthDateTimeWithoutYearR(dt1) == GetMonthDateTimeWithoutYearR(dt2);
+        }
+
     }
 }

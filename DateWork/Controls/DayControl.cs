@@ -135,11 +135,10 @@ namespace DateWork.Controls
             var notes = Notes.Current.Items;
 
             var dayNotes = notes.Where(a => !a.IsMonthDay
-                && Convert.ToDateTime(a.Date).Month == Day.Month
-                && Convert.ToDateTime(a.Date).Day == Day.Day)
+                && MonthDayHelper.IsSameMonthDay(Convert.ToDateTime(a.Date), Day))
                 .Select(a => a.Name).ToList();
             var monthDayNotes = notes.Where(a => a.IsMonthDay
-                && MonthDayHelper.GetMonthDateTimeWithoutYearR(Convert.ToDateTime(a.Date)) == MonthDayName)
+                && MonthDayHelper.IsSameMonthMonthMonthDay(Convert.ToDateTime(a.Date), Day))
                 .Select(a => a.Name); ;
             dayNotes.AddRange(monthDayNotes);
             if (dayNotes.Count > 0)
