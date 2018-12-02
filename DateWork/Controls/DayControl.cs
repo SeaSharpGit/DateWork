@@ -127,6 +127,29 @@ namespace DateWork.Controls
         }
         #endregion
 
+        #region DayType DependencyProperty
+        public DayType DayType
+        {
+            get { return (DayType)GetValue(DayTypeProperty); }
+            set { SetValue(DayTypeProperty, value); }
+        }
+        public static readonly DependencyProperty DayTypeProperty =
+                DependencyProperty.Register("DayType", typeof(DayType), typeof(DayControl),
+                new PropertyMetadata(DayType.Normal, new PropertyChangedCallback(DayControl.OnDayTypePropertyChanged)));
+
+        private static void OnDayTypePropertyChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
+        {
+            if (obj is DayControl)
+            {
+                (obj as DayControl).OnDayTypeValueChanged();
+            }
+        }
+
+        protected void OnDayTypeValueChanged()
+        {
+
+        }
+        #endregion
 
 
         private void RefreshBackground()
@@ -143,26 +166,21 @@ namespace DateWork.Controls
             dayNotes.AddRange(monthDayNotes);
             if (dayNotes.Count > 0)
             {
+                DayType = DayType.Note;
                 NoteText = string.Join("\r\n", dayNotes);
-                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFB900"));
-                Foreground = new SolidColorBrush(Colors.White);
             }
             else if (Day.Year == now.Year && Day.Month == now.Month && Day.Day == now.Day)
             {
+                DayType = DayType.Today;
                 NoteText = "今天";
-                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#25ad5e"));
-                Foreground = new SolidColorBrush(Colors.White);
+            }
+            else if (Day.Year == AppModel.Current.Year && Day.Month == AppModel.Current.Month)
+            {
+                DayType = DayType.Normal;
             }
             else
             {
-                if (Day.Year == AppModel.Current.Year && Day.Month == AppModel.Current.Month)
-                {
-                    Background = new SolidColorBrush(Colors.White);
-                }
-                else
-                {
-                    Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#F0F0F0"));
-                }
+                DayType = DayType.OtherMonth;
             }
         }
 

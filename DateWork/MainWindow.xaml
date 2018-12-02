@@ -27,15 +27,43 @@
         </Grid.RowDefinitions>
         <Border BorderThickness="0,0,0,1" BorderBrush="Gray" Background="{StaticResource LightGradientBrush}">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Button Content="备忘录"
-                        Command="{Binding Source={x:Static ser:CommonCommands.OpenNoteWindowCommand}}"/>
-                <Button x:Name="YearUp" Content="↑" Click="YearUp_Click"/>
-                <TextBlock Text="{Binding Year}"/>
-                <Button x:Name="YearDown" Content="↓" Click="YearDown_Click"/>
-
-                <Button x:Name="MonthUp" Content="↑" Click="MonthUp_Click"/>
-                <TextBlock Text="{Binding Month}"/>
-                <Button x:Name="MonthDown" Content="↓" Click="MonthDown_Click"/>
+                <Button Width="42" Height="32" BorderThickness="0" Margin="30,0,0,0"
+                        Command="{Binding Source={x:Static ser:CommonCommands.OpenNoteWindowCommand}}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/DateWork;component/Images/cake2.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
+                <!--<Button Content="备忘录"
+                        />-->
+                <Button x:Name="YearUp" Click="YearUp_Click" Width="20" Height="20" BorderThickness="0" Margin="30,0,10,0"
+                        Command="{Binding BtnCommand}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/DateWork;component/Images/left.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
+                <TextBlock VerticalAlignment="Center" FontSize="18"
+                           Text="{Binding Year}"/>
+                <Button x:Name="YearDown" Click="YearDown_Click" Width="20" Height="20" BorderThickness="0" Margin="10,0"
+                        Command="{Binding BtnCommand}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/DateWork;component/Images/right.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
+                
+                <Button x:Name="MonthUp" Click="MonthUp_Click" Width="20" Height="20" BorderThickness="0" Margin="30,0,10,0"
+                        Command="{Binding BtnCommand}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/DateWork;component/Images/left.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
+                <TextBlock VerticalAlignment="Center" FontSize="18"
+                           Text="{Binding Month}"/>
+                <Button x:Name="MonthDown" Click="MonthDown_Click" Width="20" Height="20" BorderThickness="0" Margin="10,0"
+                        Command="{Binding BtnCommand}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/DateWork;component/Images/right.png" Stretch="Fill"/>
+                    </Button.Background>
+                </Button>
             </StackPanel>
         </Border>
         <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#D3D3D3">

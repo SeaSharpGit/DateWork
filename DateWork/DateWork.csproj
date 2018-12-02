@@ -75,6 +75,7 @@
     <Compile Include="Heplers\RelayCommand.cs" />
     <Compile Include="Heplers\MonthDayHelper.cs" />
     <Compile Include="Heplers\XmlHelper.cs" />
+    <Compile Include="Models\DayType.cs" />
     <Compile Include="Services\CommonCommands.cs" />
     <Compile Include="Models\Notes.cs" />
     <Compile Include="Windows\NoteViewModel.cs" />
@@ -165,9 +166,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLLs\FirstFloor.ModernUI.dll" />
+    <Resource Include="Images\cake.png" />
+    <Resource Include="Images\cake2.png" />
+    <Resource Include="Images\cake3.png" />
+    <Resource Include="Images\left.png" />
+    <Resource Include="Images\right.png" />
     <Resource Include="logo.ico" />
     <Resource Include="Images\logo.ico" />
-    <Resource Include="datework.xml" />
+    <EmbeddedResource Include="datework.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup />

@@ -13,7 +13,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ctrl:DayControl">
-                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                    <Border x:Name="Bd" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                             Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -23,12 +23,30 @@
                             </Grid.RowDefinitions>
                             <TextBlock TextAlignment="Center" FontSize="22" Margin="0,4,0,0"
                                        Text="{TemplateBinding DayName}"/>
-                            <TextBlock TextAlignment="Center" FontSize="16" Grid.Row="1" VerticalAlignment="Top" Margin="0,2,0,0" FontWeight="Bold"
+                            <TextBlock TextAlignment="Center" FontSize="16" Grid.Row="1" VerticalAlignment="Top" Margin="0" FontWeight="Bold"
                                        Text="{TemplateBinding NoteText}" TextWrapping="Wrap"/>
                             <TextBlock TextAlignment="Center" FontSize="14" Grid.Row="2"
                                        Text="{TemplateBinding MonthDayName}"/>
                         </Grid>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="DayType" Value="Normal">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="DayType" Value="Today">
+                            <Setter Property="Background" Value="#25AD5E"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="DayType" Value="OtherMonth">
+                            <Setter Property="Background" Value="#F0F0F0"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="DayType" Value="Note">
+                            <Setter Property="Background" Value="#FFB900"/>
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

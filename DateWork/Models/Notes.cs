@@ -12,7 +12,7 @@ namespace DateWork.Models
     [XmlRoot("Notes")]
     public class Notes : BaseViewModel
     {
-        private const string _Path = @"C:\Users\dahai\Desktop\Projects\DateWork\DateWork\datework.xml";
+        private static readonly string _Path = AppDomain.CurrentDomain.BaseDirectory + "datework.xml";
 
         public static Notes Current { get; set; } = LoadXml();
 
