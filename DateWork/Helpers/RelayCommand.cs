@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace DateWork.Heplers
+namespace DateWork.Helpers
 {
     public class RelayCommand : ICommand
     {

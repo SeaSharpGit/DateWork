@@ -34,7 +34,7 @@ namespace DateWork.Helpers
         #endregion
 
         protected List<T> Items;
-        private object sync;
+        private readonly object sync;
 
         public ObservableList(Dispatcher dispatcher = null)
         {

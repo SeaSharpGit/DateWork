@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DateWork.Heplers
+namespace DateWork.Helpers
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

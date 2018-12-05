@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DateWork.Heplers
+namespace DateWork.Helpers
 {
     public static class DateHelper
     {

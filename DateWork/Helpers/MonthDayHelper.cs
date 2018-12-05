@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace DateWork.Heplers
+namespace DateWork.Helpers
 {
     public static class MonthDayHelper
     {
