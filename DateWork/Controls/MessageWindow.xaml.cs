@@ -14,47 +14,11 @@ namespace DateWork.Controls
         private object _MessageLock = new object();
 
         private Action<bool> _Callback = null;
-        private bool _IsOK = false;
-        private bool _InActiveFlash = false;
-        //private FlashWindowHelper _FlashWindow = null;
 
         private MessageWindow()
         {
             InitializeComponent();
-            //this.Closed += MessageWindow_Closed;
-            //this.Activated += MessageWindow_Activated;
-            //this.Deactivated += MessageWindow_Deactivated;
         }
-
-        //private void MessageWindow_Activated(object sender, EventArgs e)
-        //{
-        //    if (_FlashWindow != null)
-        //    {
-        //        _FlashWindow.StopFlashing();
-        //        _FlashWindow = null;
-        //    }
-        //    if (this.Topmost)
-        //    {
-        //        this.Topmost = false;
-        //    }
-        //}
-
-        //private void MessageWindow_Deactivated(object sender, EventArgs e)
-        //{
-        //    if (_InActiveFlash)
-        //    {
-        //        if (_FlashWindow == null)
-        //        {
-        //            _FlashWindow = new FlashWindowHelper(this);
-        //            _FlashWindow.FlashApplicationWindow();
-        //        }
-        //    }
-        //}
-
-        //private void MessageWindow_Closed(object sender, EventArgs e)
-        //{
-        //    _Callback?.Invoke(_IsOK);
-        //}
 
         #region 属性 IsShowDialog
         private bool _IsShowDialog = false;
@@ -89,6 +53,7 @@ namespace DateWork.Controls
         }
         #endregion
 
+        #region Public Methods
         /// <summary>
         /// 显示消息对话框
         /// </summary>
@@ -116,7 +81,6 @@ namespace DateWork.Controls
             window.ShowInTaskbar = showInTaskBar;
             if (showInTaskBar)
             {
-                window._InActiveFlash = showInTaskBar;
                 window.Topmost = true;
             }
             window.Show();
@@ -136,8 +100,10 @@ namespace DateWork.Controls
             window.IsShowDialog = true;
             window.Topmost = true;
             return window.ShowDialog();
-        }
+        } 
+        #endregion
 
+        #region Private Methods
         private static MessageWindow CreateWindow(string text, string title = "", bool showCancel = false, bool autoClose = false)
         {
             var messageWindow = new MessageWindow();
@@ -174,11 +140,13 @@ namespace DateWork.Controls
                 lock (_MessageLock)
                 {
                     (sender as DispatcherTimer).Stop();
-                    this.Close();
+                    Close();
                 }
             }
-        }
+        } 
+        #endregion
 
+        #region Events
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             if (_AutoCloseTimer != null)
@@ -187,11 +155,11 @@ namespace DateWork.Controls
             }
             if (IsShowDialog)
             {
-                this.DialogResult = false;
+                DialogResult = false;
             }
             else
             {
-                this.Close();
+                Close();
             }
         }
 
@@ -203,12 +171,11 @@ namespace DateWork.Controls
             }
             if (IsShowDialog)
             {
-                this.DialogResult = true;
+                DialogResult = true;
             }
             else
             {
-                _IsOK = true;
-                this.Close();
+                Close();
             }
         }
 
@@ -220,17 +187,18 @@ namespace DateWork.Controls
             }
             if (IsShowDialog)
             {
-                this.DialogResult = false;
+                DialogResult = false;
             }
             else
             {
-                this.Close();
+                Close();
             }
         }
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
             base.OnRenderSizeChanged(sizeInfo);
-        }
+        } 
+        #endregion
     }
 }

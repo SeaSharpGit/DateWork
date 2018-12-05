@@ -1,4 +1,5 @@
-﻿using DateWork.Heplers;
+﻿using DateWork.Controls;
+using DateWork.Heplers;
 using System;
 using System.Collections.Generic;
 
@@ -142,8 +143,7 @@ namespace DateWork.Models
             }
             catch (Exception ex)
             {
-
-                throw;
+                MessageWindow.Show("计算错误：" + ex.Message, "错误");
             }
         }
 
@@ -199,7 +199,7 @@ namespace DateWork.Models
         }
         #endregion
 
-        
+
 
 
 

@@ -48,14 +48,13 @@ namespace DateWork.Heplers
         ///<summary>
         /// 农历月
         ///</summary>
-
-        ///<return s></return s>
         private static readonly string[] months = { "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二(腊)" };
 
         ///<summary>
         /// 农历日
         ///</summary>
         private static readonly string[] days1 = { "初", "十", "廿", "三" };
+
         ///<summary>
         /// 农历日
         ///</summary>
@@ -162,11 +161,23 @@ namespace DateWork.Heplers
             return string.Concat(GetMonthMonth(month), "月", GetMonthDay(day));
         }
 
+        /// <summary>
+        /// 阳历月份和日期是否相同
+        /// </summary>
+        /// <param name="dt1"></param>
+        /// <param name="dt2"></param>
+        /// <returns></returns>
         public static bool IsSameMonthDay(DateTime dt1, DateTime dt2)
         {
             return dt1.Month == dt2.Month && dt1.Day == dt2.Day;
         }
 
+        /// <summary>
+        /// 阴历月份和日期是否相同
+        /// </summary>
+        /// <param name="dt1"></param>
+        /// <param name="dt2"></param>
+        /// <returns></returns>
         public static bool IsSameMonthMonthMonthDay(DateTime dt1, DateTime dt2)
         {
             return GetMonthDateTimeWithoutYearR(dt1) == GetMonthDateTimeWithoutYearR(dt2);
