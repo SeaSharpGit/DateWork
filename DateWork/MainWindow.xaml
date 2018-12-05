@@ -30,12 +30,10 @@
                 <Button Width="42" Height="32" BorderThickness="0" Margin="30,0,0,0"
                         Command="{Binding Source={x:Static ser:CommonCommands.OpenNoteWindowCommand}}">
                     <Button.Background>
-                        <ImageBrush ImageSource="/DateWork;component/Images/cake2.png" Stretch="Fill"/>
+                        <ImageBrush ImageSource="/DateWork;component/Images/cake.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
-                <!--<Button Content="备忘录"
-                        />-->
-                <Button x:Name="YearUp" Click="YearUp_Click" Width="20" Height="20" BorderThickness="0" Margin="30,0,10,0"
+                <Button x:Name="YearUp" Click="YearUp_Click" Width="24" Height="24" BorderThickness="0" Margin="20,0,10,0"
                         Command="{Binding BtnCommand}">
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/left.png" Stretch="Fill"/>
@@ -43,14 +41,14 @@
                 </Button>
                 <TextBlock VerticalAlignment="Center" FontSize="18"
                            Text="{Binding Year}"/>
-                <Button x:Name="YearDown" Click="YearDown_Click" Width="20" Height="20" BorderThickness="0" Margin="10,0"
+                <Button x:Name="YearDown" Click="YearDown_Click" Width="24" Height="24" BorderThickness="0" Margin="8,0,0,0"
                         Command="{Binding BtnCommand}">
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/right.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
                 
-                <Button x:Name="MonthUp" Click="MonthUp_Click" Width="20" Height="20" BorderThickness="0" Margin="30,0,10,0"
+                <Button x:Name="MonthUp" Click="MonthUp_Click" Width="24" Height="24" BorderThickness="0" Margin="20,0,10,0"
                         Command="{Binding BtnCommand}">
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/left.png" Stretch="Fill"/>
@@ -58,7 +56,7 @@
                 </Button>
                 <TextBlock VerticalAlignment="Center" FontSize="18"
                            Text="{Binding Month}"/>
-                <Button x:Name="MonthDown" Click="MonthDown_Click" Width="20" Height="20" BorderThickness="0" Margin="10,0"
+                <Button x:Name="MonthDown" Click="MonthDown_Click" Width="24" Height="24" BorderThickness="0" Margin="8,0,0,0"
                         Command="{Binding BtnCommand}">
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/right.png" Stretch="Fill"/>

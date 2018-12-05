@@ -167,10 +167,8 @@
   <ItemGroup>
     <Content Include="DLLs\FirstFloor.ModernUI.dll" />
     <Resource Include="Images\cake.png" />
-    <Resource Include="Images\cake2.png" />
-    <Resource Include="Images\cake3.png" />
-    <Resource Include="Images\left.png" />
     <Resource Include="Images\right.png" />
+    <Resource Include="Images\left.png" />
     <Resource Include="logo.ico" />
     <Resource Include="Images\logo.ico" />
     <EmbeddedResource Include="datework.xml">

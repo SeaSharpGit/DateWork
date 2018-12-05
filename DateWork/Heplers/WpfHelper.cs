@@ -5,22 +5,18 @@
  * license     : free use or modify
  * description : WPF应用程序的操作帮助类
  */
-using System;
-using System.Diagnostics;
-using System.Threading;
-using System.Windows.Threading;
-using System.Windows;
 using Microsoft.Win32;
-using System.Windows.Media;
-using System.Windows.Interop;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Collections;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Windows.Markup;
+using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Markup;
+using System.Windows.Media;
+using System.Windows.Threading;
+using System.Xml;
 
 namespace DateWork.Helpers
 {

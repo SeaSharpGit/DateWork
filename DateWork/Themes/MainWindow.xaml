@@ -13,10 +13,10 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="#25ad5e"/>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#f3bbd4"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Bd" Property="BorderBrush" Value="#25ad5e"/>
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#f3bbd4"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -1,14 +1,7 @@
 ﻿using DateWork.Controls;
-using DateWork.Helpers;
 using DateWork.Heplers;
 using DateWork.Models;
-using DateWork.Services;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DateWork.Windows
 {
