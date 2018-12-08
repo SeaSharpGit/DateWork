@@ -143,7 +143,7 @@ namespace DateWork.Models
             }
             catch (Exception ex)
             {
-                MessageWindow.Show("计算错误：" + ex.Message, "错误");
+                MessageWindow.Show("计算日期错误：" + ex.Message, "错误", false);
             }
         }
 
