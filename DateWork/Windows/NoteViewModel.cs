@@ -153,6 +153,7 @@ namespace DateWork.Windows
             Notes.Items.Add(note);
             Notes.Save();
             Reset();
+            AppModel.Current.RefreshDays();
         }
         #endregion
 
@@ -181,6 +182,7 @@ namespace DateWork.Windows
             SelectedNote.IsMonthDay = IsMonthDay;
             SelectedNote.Date = Date;
             Notes.Save();
+            AppModel.Current.RefreshDays();
         }
         #endregion
 
@@ -210,6 +212,7 @@ namespace DateWork.Windows
                 Notes.Items.Remove(SelectedNote);
                 Notes.Save();
                 Reset();
+                AppModel.Current.RefreshDays();
             }
         }
         #endregion

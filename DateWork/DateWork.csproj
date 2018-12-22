@@ -167,6 +167,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DLLs\FirstFloor.ModernUI.dll" />
+    <Resource Include="Images\index.png" />
+    <Resource Include="Images\note.png" />
     <Resource Include="Images\cake.png" />
     <Resource Include="Images\right.png" />
     <Resource Include="Images\left.png" />

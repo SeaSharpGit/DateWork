@@ -143,7 +143,7 @@ namespace DateWork.Models
             }
             catch (Exception ex)
             {
-                MessageWindow.Show("计算日期错误：" + ex.Message, "错误", false);
+                MessageWindow.Show($"计算日期错误：{ex.Message}", "错误", false);
             }
         }
 
@@ -199,6 +199,35 @@ namespace DateWork.Models
         }
         #endregion
 
+        #region 属性 IsAutoRun
+        private bool _IsAutoRun = Notes.Current.IsAutoRun;
+        public bool IsAutoRun
+        {
+            get
+            {
+                return _IsAutoRun;
+            }
+            set
+            {
+                _IsAutoRun = value;
+                OnAutoRun();
+                Notes.Current.IsAutoRun = _IsAutoRun;
+                Notes.Current.Save();
+            }
+        }
+
+        private void OnAutoRun()
+        {
+            try
+            {
+                WpfApplication.AutoRun("DateWork.exe", _IsAutoRun);
+            }
+            catch (Exception ex)
+            {
+                MessageWindow.Show($"开机启动错误：{ex.Message}", "错误", false);
+            }
+        }
+        #endregion
 
 
 

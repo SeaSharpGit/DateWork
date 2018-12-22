@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_1320359D47044B0BA629B7E04D581621"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_217F830773F3B167EF0905389B8E1A44"
         "OwnerKey" = "8:_AD7A842E480241A8A22FCE2A0959B049"
         "MsmSig" = "8:_UNDEFINED"
@@ -22,12 +28,6 @@
         "Entry"
         {
         "MsmKey" = "8:_3EEA5ABC03EC4ECFB17E6965DEEC2C99"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_57D32444479E459D8147AD9F8261C871"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -136,6 +136,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -166,6 +174,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1320359D47044B0BA629B7E04D581621"
+            {
+            "SourcePath" = "8:C:\\Windows\\System32\\msiexec.exe"
+            "TargetName" = "8:msiexec.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_EB1E9197D7CD471B91CBB39A86FB2362"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_217F830773F3B167EF0905389B8E1A44"
             {
             "AssemblyRegister" = "3:1"
@@ -201,26 +229,6 @@
             {
             "SourcePath" = "8:..\\DateWork\\Images\\logo.ico"
             "TargetName" = "8:logo.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_EB1E9197D7CD471B91CBB39A86FB2362"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_57D32444479E459D8147AD9F8261C871"
-            {
-            "SourcePath" = "8:C:\\Windows\\System32\\msiexec.exe"
-            "TargetName" = "8:UnInstall"
             "Tag" = "8:"
             "Folder" = "8:_EB1E9197D7CD471B91CBB39A86FB2362"
             "Condition" = "8:"
@@ -387,7 +395,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DateWork"
         "ProductCode" = "8:{BC45D5D4-802C-43D2-917C-237B0AB264F6}"
-        "PackageCode" = "8:{110437D5-15C7-424F-839E-74564AF63979}"
+        "PackageCode" = "8:{A4E0CDE6-028B-409E-9B3E-DE3E9D823988}"
         "UpgradeCode" = "8:{876F9127-5536-4D50-BB30-37BF1DA36379}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -535,29 +543,29 @@
             "Icon" = "8:_3EEA5ABC03EC4ECFB17E6965DEEC2C99"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C27C31B6A4EE48CE9BF11251EB30EEB4"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_86E5625914D443F6808F2309E275ACB4"
             {
-            "Name" = "8:卸载"
-            "Arguments" = "8:0x/ {BC45D5D4-802C-43D2-917C-237B0AB264F6}"
+            "Name" = "8:卸载.exe"
+            "Arguments" = "8:/x {BC45D5D4-802C-43D2-917C-237B0AB264F6}"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_57D32444479E459D8147AD9F8261C871"
+            "Target" = "8:_1320359D47044B0BA629B7E04D581621"
             "Folder" = "8:_9024A06C231A472FB221A6217A09F4DD"
             "WorkingFolder" = "8:_EB1E9197D7CD471B91CBB39A86FB2362"
             "Icon" = "8:"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EC969194D69B4FB3A9DE036E5D625343"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D37ADA2712044BD39D4DC82B5CFA9B7A"
             {
-            "Name" = "8:卸载"
-            "Arguments" = "8:0x/ {BC45D5D4-802C-43D2-917C-237B0AB264F6}"
+            "Name" = "8:卸载.exe"
+            "Arguments" = "8:/x {BC45D5D4-802C-43D2-917C-237B0AB264F6}"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_57D32444479E459D8147AD9F8261C871"
+            "Target" = "8:_1320359D47044B0BA629B7E04D581621"
             "Folder" = "8:_EB1E9197D7CD471B91CBB39A86FB2362"
             "WorkingFolder" = "8:_EB1E9197D7CD471B91CBB39A86FB2362"
             "Icon" = "8:"

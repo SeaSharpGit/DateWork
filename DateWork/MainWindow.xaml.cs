@@ -66,5 +66,6 @@ namespace DateWork
             AppModel.Current.RefreshDays();
         }
         #endregion
+
     }
 }

@@ -11,6 +11,23 @@ namespace DateWork.Models
 
         public static Notes Current { get; set; } = LoadXml();
 
+        #region 属性 IsAutoRun
+        private bool _IsAutoRun = false;
+        [XmlAttribute("IsAutoRun")]
+        public bool IsAutoRun
+        {
+            get
+            {
+                return _IsAutoRun;
+            }
+            set
+            {
+                _IsAutoRun = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
         #region 属性 Items
         private CollectionBase<Note> _Items = null;
         [XmlElement("Note", typeof(Note))]
@@ -96,7 +113,6 @@ namespace DateWork.Models
             }
         }
         #endregion
-
 
     }
 

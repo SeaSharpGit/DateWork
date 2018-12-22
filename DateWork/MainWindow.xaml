@@ -33,35 +33,52 @@
                         <ImageBrush ImageSource="/DateWork;component/Images/cake.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="YearUp" Click="YearUp_Click" Width="24" Height="24" BorderThickness="0" Margin="20,0,10,0"
-                        Command="{Binding BtnCommand}">
+                <Button x:Name="YearUp" Width="24" Height="24" BorderThickness="0" Margin="20,0,10,0"
+                        Click="YearUp_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/left.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
                 <TextBlock VerticalAlignment="Center" FontSize="18"
                            Text="{Binding Year}"/>
-                <Button x:Name="YearDown" Click="YearDown_Click" Width="24" Height="24" BorderThickness="0" Margin="8,0,0,0"
-                        Command="{Binding BtnCommand}">
+                <Button x:Name="YearDown" Width="24" Height="24" BorderThickness="0" Margin="8,0,0,0"
+                        Click="YearDown_Click" >
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/right.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
                 
-                <Button x:Name="MonthUp" Click="MonthUp_Click" Width="24" Height="24" BorderThickness="0" Margin="20,0,10,0"
-                        Command="{Binding BtnCommand}">
+                <Button x:Name="MonthUp" Width="24" Height="24" BorderThickness="0" Margin="20,0,10,0"
+                        Click="MonthUp_Click" >
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/left.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
                 <TextBlock VerticalAlignment="Center" FontSize="18"
                            Text="{Binding Month}"/>
-                <Button x:Name="MonthDown" Click="MonthDown_Click" Width="24" Height="24" BorderThickness="0" Margin="8,0,0,0"
-                        Command="{Binding BtnCommand}">
+                <Button x:Name="MonthDown" Width="24" Height="24" BorderThickness="0" Margin="8,0,0,0"
+                        Click="MonthDown_Click" >
                     <Button.Background>
                         <ImageBrush ImageSource="/DateWork;component/Images/right.png" Stretch="Fill"/>
                     </Button.Background>
                 </Button>
+
+                <ToggleButton x:Name="AutoRun" Width="86" Height="28" Margin="20,1,0,0"
+                              IsChecked="{Binding IsAutoRun}">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Border x:Name="Auto_Bd" CornerRadius="5" BorderBrush="#25ad5e" BorderThickness="1.2" Background="Transparent">
+                                <TextBlock Text="开机启动" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="Auto_Bd" Property="Background" Value="#25ad5e"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
             </StackPanel>
         </Border>
         <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="#D3D3D3">
