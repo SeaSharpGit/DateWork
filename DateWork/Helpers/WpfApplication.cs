@@ -149,15 +149,13 @@ namespace DateWork.Helpers
             if (set) //设置开机自启动  
             {
                 rgkRun.SetValue(appName, path);
-                rgkRun.Close();
-                rk.Close();
             }
             else //取消开机自启动  
             {
                 rgkRun.DeleteValue(appName, false);
-                rgkRun.Close();
-                rk.Close();
             }
+            rgkRun.Close();
+            rk.Close();
         }
 
         public static bool IsAutoRun(string appName)
