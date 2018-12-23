@@ -48,7 +48,7 @@ namespace DateWork.Models
             }
         }
         #endregion
-        
+          
         public static Notes LoadXml()
         {
             return _Path.XmlToObject<Notes>();
